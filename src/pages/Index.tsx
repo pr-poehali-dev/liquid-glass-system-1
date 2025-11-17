@@ -82,6 +82,19 @@ const Index = () => {
           </Card>
         </div>
 
+        {/* Marquee */}
+        <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl overflow-hidden shadow-lg">
+          <div className="relative overflow-hidden py-4">
+            <div className="animate-marquee whitespace-nowrap inline-flex">
+              {[...marqueeText, ...marqueeText].map((text, idx) => (
+                <span key={idx} className="mx-8 text-lg font-semibold text-black">
+                  {text}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Card>
+
         {/* Main Grid */}
         <div className="grid grid-cols-12 gap-6">
           {/* Left Column - Main Functions */}
@@ -252,19 +265,6 @@ const Index = () => {
             </Card>
           </div>
         </div>
-
-        {/* Marquee */}
-        <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl overflow-hidden shadow-lg">
-          <div className="relative overflow-hidden py-4">
-            <div className="animate-marquee whitespace-nowrap inline-flex">
-              {[...marqueeText, ...marqueeText].map((text, idx) => (
-                <span key={idx} className="mx-8 text-lg font-semibold text-black">
-                  {text}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Card>
       </div>
 
       <style>{`
