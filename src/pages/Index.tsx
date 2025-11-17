@@ -9,11 +9,56 @@ const Index = () => {
   const [activeArea, setActiveArea] = useState('закупки');
 
   const workAreas = [
-    { name: 'закупки', task: 'Проверка контракта №452-ФЗ' },
-    { name: 'юрист', task: 'Подготовка ответа на жалобу' },
-    { name: 'финотдел', task: 'Согласование сметы на 2026 год' },
-    { name: 'техдокументация', task: 'Проверка проекта реконструкции' },
-    { name: 'произвольная проверка', task: 'Анализ входящей документации' }
+    { 
+      name: 'закупки', 
+      task: 'Проверка контракта №452-ФЗ',
+      actions: [
+        { icon: 'ShoppingCart', label: 'Реестр контрактов' },
+        { icon: 'FileSearch', label: 'Проверка 44-ФЗ' },
+        { icon: 'TrendingUp', label: 'Анализ цен' },
+        { icon: 'AlertCircle', label: 'Контроль сроков' }
+      ]
+    },
+    { 
+      name: 'юрист', 
+      task: 'Подготовка ответа на жалобу',
+      actions: [
+        { icon: 'Scale', label: 'Шаблоны договоров' },
+        { icon: 'FileText', label: 'Правовые акты' },
+        { icon: 'MessageSquare', label: 'Ответы на жалобы' },
+        { icon: 'BookOpen', label: 'Судебная практика' }
+      ]
+    },
+    { 
+      name: 'финотдел', 
+      task: 'Согласование сметы на 2026 год',
+      actions: [
+        { icon: 'Calculator', label: 'Расчёт сметы' },
+        { icon: 'PieChart', label: 'Бюджет по статьям' },
+        { icon: 'Wallet', label: 'Казначейство' },
+        { icon: 'FileSpreadsheet', label: 'Отчётность' }
+      ]
+    },
+    { 
+      name: 'техдокументация', 
+      task: 'Проверка проекта реконструкции',
+      actions: [
+        { icon: 'HardHat', label: 'СНиПы и ГОСТы' },
+        { icon: 'Ruler', label: 'Проектная док-ция' },
+        { icon: 'ClipboardCheck', label: 'Экспертиза' },
+        { icon: 'Construction', label: 'Сметные расчёты' }
+      ]
+    },
+    { 
+      name: 'произвольная проверка', 
+      task: 'Анализ входящей документации',
+      actions: [
+        { icon: 'ScanSearch', label: 'Сканирование текста' },
+        { icon: 'CheckCircle', label: 'Проверка подписей' },
+        { icon: 'ListChecks', label: 'Чек-лист проверки' },
+        { icon: 'FolderSearch', label: 'Поиск в архиве' }
+      ]
+    }
   ];
   
   const citizenTopics = [
@@ -131,6 +176,28 @@ const Index = () => {
             {/* Work Areas */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
               <h2 className="text-xl font-bold mb-4 text-black">Рабочие области</h2>
+              
+              {/* Common Actions */}
+              <div className="mb-4 grid grid-cols-2 gap-2">
+                <Button size="sm" className="bg-green-500 hover:bg-green-600 text-black border-2 border-black rounded-xl font-semibold">
+                  <Icon name="Database" className="mr-1" size={16} />
+                  База знаний
+                </Button>
+                <Button size="sm" className="bg-yellow-500 hover:bg-yellow-600 text-black border-2 border-black rounded-xl font-semibold">
+                  <Icon name="Upload" className="mr-1" size={16} />
+                  Загрузить
+                </Button>
+                <Button size="sm" className="bg-white hover:bg-gray-100 text-black border-2 border-black rounded-xl font-semibold">
+                  <Icon name="FileCheck" className="mr-1" size={16} />
+                  Отчёт
+                </Button>
+                <Button size="sm" className="bg-white hover:bg-gray-100 text-black border-2 border-black rounded-xl font-semibold">
+                  <Icon name="FileText" className="mr-1" size={16} />
+                  Шаблон
+                </Button>
+              </div>
+
+              {/* Areas Horizontal */}
               <div className="space-y-3">
                 {workAreas.map((area) => (
                   <div
@@ -142,28 +209,23 @@ const Index = () => {
                         : 'bg-white text-black hover:bg-gray-100'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-3">
                       <h3 className="font-bold text-sm uppercase">{area.name}</h3>
                       <Icon name="ChevronRight" size={18} className="text-black" />
                     </div>
-                    <p className="text-sm text-gray-700">{area.task}</p>
-                    <div className="mt-3 grid grid-cols-2 gap-2">
-                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
-                        <Icon name="Database" className="mr-1" size={14} />
-                        База знаний
-                      </Button>
-                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
-                        <Icon name="Upload" className="mr-1" size={14} />
-                        Загрузить
-                      </Button>
-                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
-                        <Icon name="FileCheck" className="mr-1" size={14} />
-                        Отчёт
-                      </Button>
-                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
-                        <Icon name="FileText" className="mr-1" size={14} />
-                        Шаблон
-                      </Button>
+                    <p className="text-sm text-gray-700 mb-3">{area.task}</p>
+                    <div className="flex gap-2 overflow-x-auto pb-1">
+                      {area.actions.map((action, idx) => (
+                        <Button 
+                          key={idx}
+                          size="sm" 
+                          variant="outline" 
+                          className="text-xs border-black rounded-xl h-8 whitespace-nowrap flex-shrink-0"
+                        >
+                          <Icon name={action.icon} className="mr-1" size={14} />
+                          {action.label}
+                        </Button>
+                      ))}
                     </div>
                   </div>
                 ))}
