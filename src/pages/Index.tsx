@@ -232,22 +232,6 @@ const Index = () => {
               </div>
             </Card>
 
-            {/* Events Table */}
-            <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black">Связь мероприятий с Госпрограммами</h2>
-              <div className="space-y-3">
-                {events.map((event, idx) => (
-                  <div key={idx} className="bg-white/80 rounded-2xl p-4 border-2 border-black">
-                    <h3 className="font-bold text-black mb-2">{event.name}</h3>
-                    <div className="text-sm space-y-1 text-gray-700">
-                      <p><strong>Эффект:</strong> {event.effect}</p>
-                      <p><strong>Расходы:</strong> {event.budget}</p>
-                      <p><strong>Программа:</strong> <Badge className="bg-yellow-500 text-black border border-black">{event.program}</Badge></p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
           </div>
 
           {/* Middle Column - Citizen Appeals & Tasks */}
@@ -351,6 +335,23 @@ const Index = () => {
                   <Icon name="FileEdit" className="mr-2" size={20} />
                   Сформировать решение
                 </Button>
+              </div>
+            </Card>
+
+            {/* Events Table */}
+            <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
+              <h2 className="text-xl font-bold mb-4 text-black">Связь мероприятий с Госпрограммами</h2>
+              <div className="space-y-3">
+                {events.map((event, idx) => (
+                  <div key={idx} className="bg-white/80 rounded-2xl p-4 border-2 border-black">
+                    <h3 className="font-bold text-black mb-2">{event.name}</h3>
+                    <div className="text-sm space-y-1 text-gray-700">
+                      <p><strong>Эффект:</strong> {event.effect}</p>
+                      <p><strong>Расходы:</strong> {event.budget}</p>
+                      <p><strong>Программа:</strong> <Badge className="bg-yellow-500 text-black border border-black">{event.program}</Badge></p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </Card>
           </div>
