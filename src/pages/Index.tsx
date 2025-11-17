@@ -8,7 +8,13 @@ import { Progress } from '@/components/ui/progress';
 const Index = () => {
   const [activeArea, setActiveArea] = useState('закупки');
 
-  const workAreas = ['закупки', 'юрист', 'финотдел', 'техдокументация', 'произвольная проверка'];
+  const workAreas = [
+    { name: 'закупки', task: 'Проверка контракта №452-ФЗ' },
+    { name: 'юрист', task: 'Подготовка ответа на жалобу' },
+    { name: 'финотдел', task: 'Согласование сметы на 2026 год' },
+    { name: 'техдокументация', task: 'Проверка проекта реконструкции' },
+    { name: 'произвольная проверка', task: 'Анализ входящей документации' }
+  ];
   
   const citizenTopics = [
     { text: 'Отопление', size: 'text-5xl', weight: 'font-bold' },
@@ -125,19 +131,41 @@ const Index = () => {
             {/* Work Areas */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
               <h2 className="text-xl font-bold mb-4 text-black">Рабочие области</h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-3">
                 {workAreas.map((area) => (
-                  <Badge
-                    key={area}
-                    onClick={() => setActiveArea(area)}
-                    className={`cursor-pointer px-4 py-2 text-sm font-semibold border-2 border-black rounded-full ${
-                      activeArea === area
-                        ? 'bg-green-500 text-black'
+                  <div
+                    key={area.name}
+                    onClick={() => setActiveArea(area.name)}
+                    className={`cursor-pointer rounded-2xl p-4 border-2 border-black transition-all ${
+                      activeArea === area.name
+                        ? 'bg-green-500 text-black shadow-lg'
                         : 'bg-white text-black hover:bg-gray-100'
                     }`}
                   >
-                    {area}
-                  </Badge>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-bold text-sm uppercase">{area.name}</h3>
+                      <Icon name="ChevronRight" size={18} className="text-black" />
+                    </div>
+                    <p className="text-sm text-gray-700">{area.task}</p>
+                    <div className="mt-3 grid grid-cols-2 gap-2">
+                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
+                        <Icon name="Database" className="mr-1" size={14} />
+                        База знаний
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
+                        <Icon name="Upload" className="mr-1" size={14} />
+                        Загрузить
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
+                        <Icon name="FileCheck" className="mr-1" size={14} />
+                        Отчёт
+                      </Button>
+                      <Button size="sm" variant="outline" className="text-xs border-black rounded-xl h-8">
+                        <Icon name="FileText" className="mr-1" size={14} />
+                        Шаблон
+                      </Button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </Card>
