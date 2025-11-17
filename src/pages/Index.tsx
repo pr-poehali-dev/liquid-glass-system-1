@@ -152,7 +152,7 @@ const Index = () => {
           <div className="col-span-4 space-y-4">
             {/* Knowledge Base & Documents */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black">Работа с документами</h2>
+              <h2 className="font-bold mb-4 text-black text-3xl">Работа с документами</h2>
               <div className="space-y-3">
                 <Button className="w-full justify-start bg-green-500 hover:bg-green-600 text-black border-2 border-black rounded-2xl font-semibold">
                   <Icon name="Database" className="mr-2" size={20} />
@@ -175,7 +175,7 @@ const Index = () => {
 
             {/* Work Areas */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black">Рабочие области</h2>
+              <h2 className="font-bold mb-4 text-black text-3xl">Рабочие области</h2>
               
               {/* Common Actions */}
               <div className="mb-4 grid grid-cols-2 gap-2">
@@ -238,7 +238,7 @@ const Index = () => {
           <div className="col-span-4 space-y-4">
             {/* Citizen Appeals Cloud */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black flex items-center gap-2">
+              <h2 className="font-bold mb-4 text-black flex items-center gap-2 text-3xl">
                 <Icon name="Users" size={24} />
                 Обращения граждан
               </h2>
@@ -256,7 +256,7 @@ const Index = () => {
 
             {/* Tasks from Head */}
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black flex items-center gap-2">
+              <h2 className="font-bold mb-4 text-black flex items-center gap-2 text-3xl">
                 <Icon name="ClipboardList" size={24} />
                 Поручения главы
               </h2>
@@ -283,7 +283,7 @@ const Index = () => {
           {/* Right Column - Interactive Map */}
           <div className="col-span-4 space-y-4">
             <Card className="backdrop-blur-lg bg-white/60 border-2 border-black rounded-3xl p-6 shadow-lg">
-              <h2 className="text-xl font-bold mb-4 text-black flex items-center gap-2">
+              <h2 className="font-bold mb-4 text-black flex items-center gap-2 text-3xl">
                 <Icon name="Map" size={24} />
                 Интерактивная карта МО
               </h2>
